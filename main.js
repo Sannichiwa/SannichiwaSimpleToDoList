@@ -12,7 +12,10 @@ if (storedInput === '' || storedInput === null) {
     localStorage.setItem('textInput', JSON.stringify(storedInput));
 } else {
     // else, if its not empty or null, then parse it/make it readable for JavaScript by JSON.parse()
-    storedInput = JSON.parse(localStorage.getItem('textInput'));
+    storedInput = localStorage.getItem('textInput');
+    console.log(storedInput)
+    storedInput = JSON.parse(storedInput);
+    console.log(storedInput)
 }
 
 addToDoButton.addEventListener('click', function () {
