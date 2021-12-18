@@ -5,17 +5,11 @@ const clear = document.querySelector('.clear');
 
 // this will make the stored-data in localStorage available as a JavaScript-array, instead of LocalStorage-data
 // start the app with checking if the stored-data is empty/null and if so, then create an empty array
-let storedInput = localStorage.getItem('textInput');
+let storedInput = JSON.parse(localStorage.getItem('textInput'));
 if (storedInput === '' || storedInput === null) {
     storedInput = [];
     // push it to localStorage with JSON.stringify()
     localStorage.setItem('textInput', JSON.stringify(storedInput));
-} else {
-    // else, if its not empty or null, then parse it/make it readable for JavaScript by JSON.parse()
-    storedInput = localStorage.getItem('textInput');
-    console.log(storedInput)
-    storedInput = JSON.parse(storedInput);
-    console.log(storedInput)
 }
 
 addToDoButton.addEventListener('click', function () {
